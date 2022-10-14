@@ -26,12 +26,20 @@ var questions = [{
 {
   question: "Where do Anupam work? ",
   answer: "Verifone"
+},
+{
+  question: "If you know me, by which name everybody made fun me of? ",
+  answer: "Pumpkin"
+},
+{
+  question: "What is my nickname? ",
+  answer: "Annu"
 }];
 
 function welcome() {
- var userName = readlineSync.question("May I have your name? ");
+  var userName = readlineSync.question("May I have your name? ");
 
-  console.log("Welcome "+ userName + " to DO YOU KNOW Anupam?");
+  console.log("Welcome " + userName + " to DO YOU KNOW Anupam?");
 }
 
 
@@ -42,10 +50,11 @@ function play(question, answer) {
   if (userAnswer.toUpperCase() === answer.toUpperCase()) {
     console.log("right!");
     score = score + 1;
-    
+
   } else {
     console.log("wrong!");
-   
+    console.log("The right answer is " + answer);
+
   }
 
   console.log("current score: ", score);
@@ -53,7 +62,7 @@ function play(question, answer) {
 }
 
 function game() {
-  for (var i=0; i<questions.length; i++) {
+  for (var i = 0; i < questions.length; i++) {
     var currentQuestion = questions[i];
     play(currentQuestion.question, currentQuestion.answer)
   }
